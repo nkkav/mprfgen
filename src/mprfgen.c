@@ -27,8 +27,7 @@ int nwp=1, nrp=2;
 unsigned int bw=16, nregs=1024;
 
 
-/* print_spaces:
- * Print a configurable number of space characters to an output file (specified 
+/* Print a configurable number of space characters to an output file (specified 
  * by the given filename; the file is assumed already opened).
  */
 void print_spaces(FILE *f, int nspaces)
@@ -41,8 +40,7 @@ void print_spaces(FILE *f, int nspaces)
   }
 }
 
-/* pfprintf: 
- * fprintf prefixed by a number of space characters. 
+/* fprintf prefixed by a number of space characters. 
  */
 void pfprintf(FILE *f, int nspaces, char *fmt, ...)
 {
@@ -53,8 +51,7 @@ void pfprintf(FILE *f, int nspaces, char *fmt, ...)
   va_end(args);
 }
 
-/* timestamp:
- * TIMESTAMP prints the current YMDHMS date as a time stamp to file f.
+/* TIMESTAMP prints the current YMDHMS date as a time stamp to file f.
  * Example  :
  *   31 May 2001 09:45:54 AM
  * Licensing: This code is distributed under the GNU LGPL license. 
@@ -76,8 +73,7 @@ void timestamp(FILE *f)
 #undef TIME_SIZE
 }
 
-/* log2c: 
- * Integer logarithm-2 function (rounds to ceiling).
+/* Integer logarithm-2 function (rounds to ceiling).
  */
 unsigned int log2c(int inp)
 {
@@ -98,8 +94,7 @@ unsigned int log2c(int inp)
   return (log);
 }
 
-/* decode_read_mode:
- * Returns the corresponding string representation of the given block 
+/* Writes the corresponding string representation of the given block 
  * RAM read mode.
  */
 void decode_read_mode(char *s, READ_MODE val)
@@ -125,8 +120,7 @@ void decode_read_mode(char *s, READ_MODE val)
   }
 }
 
-/* print_mprf_tu_prologue:
- * Prints the prologue for the generated memory model file. 
+/* Prints the prologue for the generated memory model file. 
  */
 void print_mprf_tu_prologue(FILE *infile, char *fname)
 {
@@ -151,8 +145,7 @@ void print_mprf_tu_prologue(FILE *infile, char *fname)
   fprintf(infile, "\n");
 }
 
-/* print_mprf_entity:
- * Prints the entity of the generated memory model. 
+/* Prints the entity of the generated memory model. 
  */
 void print_mprf_entity(FILE *infile, int num_ni, int num_no)
 {
@@ -177,8 +170,7 @@ void print_mprf_entity(FILE *infile, int num_ni, int num_no)
   pfprintf(infile, 0, "end regfile;\n\n");
 }
 
-/* print_mprf_architecture_prologue:
- * Prints the declaration part of the architecture for the generated memory 
+/* Prints the declaration part of the architecture for the generated memory 
  * model. 
  */
 void print_mprf_architecture_prologue(FILE *infile, int num_no)
@@ -220,8 +212,7 @@ void print_mprf_architecture_prologue(FILE *infile, int num_no)
   pfprintf(infile, 0, "begin\n");
 }
 
-/* print_mprf_bram_gen:
- * Prints the actual block RAM instances. 
+/* Prints the actual block RAM instances. 
  */
 void print_mprf_bram_gen(FILE *infile, int num_ni, int num_no)
 {
@@ -313,8 +304,7 @@ void print_mprf_bram_gen(FILE *infile, int num_ni, int num_no)
   }
 }
 
-/* print_mprf_banksel_gen:
- * Prints the concurrent assignments for bank selection. 
+/* Prints the concurrent assignments for bank selection. 
  */
 void print_mprf_banksel_gen(FILE *infile, int num_ni, int num_no)
 {
@@ -330,8 +320,7 @@ void print_mprf_banksel_gen(FILE *infile, int num_ni, int num_no)
   }
 }
 
-/* print_mprf_outmuxes_gen:
- * Prints the necessary code for handling output port multiplexers. 
+/* Prints the necessary code for handling output port multiplexers. 
  */
 void print_mprf_outmuxes_gen(FILE *infile, int num_ni, int num_no)
 {
@@ -370,8 +359,7 @@ void print_mprf_outmuxes_gen(FILE *infile, int num_ni, int num_no)
   }
 }
 
-/* print_mprf_architecture_body:
- * Generates the architecture body of the memory model. 
+/* Generates the architecture body of the memory model. 
  */
 void print_mprf_architecture_body(FILE *infile, int num_ni, int num_no)
 {
@@ -388,8 +376,7 @@ void print_mprf_epilogue(FILE *infile)
   fprintf(infile, "end rtl;\n");
 }
 
-/* print_usage:
- * Print usage instructions for the "mprfgen" program.
+/* Print usage instructions for the "mprfgen" program.
  */
 static void print_usage()
 {
@@ -415,13 +402,12 @@ static void print_usage()
   printf("* http://electronics.physics.auth.gr/tomeas/en/kavvadias.html\n\n");
 }
 
-/* main:
- * Program entry.
+/* Program entry.
  */
 int main(int argc, char **argv)
 {
-  FILE *file_o;
-  char *file_name;
+  FILE *file_o = NULL;
+  char *file_name = NULL;
   int i;
 
   /* Command-line argument passing. */

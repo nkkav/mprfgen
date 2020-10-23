@@ -3,7 +3,7 @@
 # Copyright: (C) 2007-2020 Nikolaos Kavvadias
 
 CC = gcc
-CFLAGS = -Wall -Wextra -pedantic -g -pg -O0 #-O2
+CFLAGS = -Wall -Wextra -pedantic -O2
 EXE= .exe
 
 all: mprfgen$(EXE)
