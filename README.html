@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.14: http://docutils.sourceforge.net/" />
+<title>mprfgen user manual</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="mprfgen-user-manual">
+<h1 class="title">mprfgen user manual</h1>
+
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="75%" />
+</colgroup>
+<tbody valign="top">
+<tr><td><strong>Title</strong></td>
+<td>mprfgen</td>
+</tr>
+<tr><td><strong>Description</strong></td>
+<td>Multi-port register file generator</td>
+</tr>
+<tr><td><strong>Author</strong></td>
+<td>Nikolaos Kavvadias 2007-2020</td>
+</tr>
+<tr><td><strong>Copyright</strong></td>
+<td>Nikolaos Kavvadias 2007-2020</td>
+</tr>
+<tr><td><strong>Contact</strong></td>
+<td><a class="reference external" href="mailto:nikolaos.kavvadias&#64;gmail.com">nikolaos.kavvadias&#64;gmail.com</a></td>
+</tr>
+<tr><td><strong>Website</strong></td>
+<td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
+</tr>
+<tr><td><strong>Release Date</strong></td>
+<td>12 January 2013</td>
+</tr>
+<tr><td><strong>Version</strong></td>
+<td>1.0.1</td>
+</tr>
+<tr><td><strong>Rev. history</strong></td>
+<td>&nbsp;</td>
+</tr>
+<tr><td><strong>v1.0.1</strong></td>
+<td><p class="first">23-10-2020</p>
+<p class="last">Open-sourced under the LGPL.</p>
+</td>
+</tr>
+<tr><td><strong>v1.0.0</strong></td>
+<td><p class="first">12-01-2013</p>
+<p class="last">First commercial release.</p>
+</td>
+</tr>
+<tr><td><strong>v0.0.2</strong></td>
+<td><p class="first">07-10-2010</p>
+<p class="last">The first real update since the initial version.
+Should work with ISE XST 12.3. Read-through mode added.</p>
+</td>
+</tr>
+<tr><td><strong>v0.0.1</strong></td>
+<td><p class="first">27-12-2007</p>
+<p class="last">Initial release.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="introduction">
+<h1>1. Introduction</h1>
+<p><tt class="docutils literal">mprfgen</tt> is a multi-port register file generator. It can either infer storage
+or instantiate block-RAM embedded memories for the Xilinx Spartan-3, Virtex-4,
+Virtex-5 FPGAs or newer.</p>
+<p>The generated memories are initialized to ZEROs. Also, when using RAM inference,
+the following compilation/elaboration order should be used:</p>
+<blockquote>
+<ol class="arabic simple">
+<li><tt class="docutils literal">util_functions_pkg.vhd</tt></li>
+<li><tt class="docutils literal">regfile_core.vhd</tt></li>
+<li><tt class="docutils literal"><span class="pre">&lt;your-generated-file&gt;.vhd</span></tt></li>
+</ol>
+</blockquote>
+<p>Please, note that the default read mode option (read-async) will generate
+distributed RAM. For block RAM, use read-first, write-first or read-through,
+instead.</p>
+</div>
+<div class="section" id="file-listing">
+<h1>2. File listing</h1>
+<p>The mprfgen distribution includes the files listed in the following table.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>/mprfgen</td>
+<td>Top-level directory</td>
+</tr>
+<tr><td><p class="first">AUTHORS</p>
+<p>LICENSE</p>
+<p>README.rst</p>
+<p>README.html</p>
+<p>README.pdf</p>
+<p>VERSION</p>
+<p>build.sh</p>
+<p>env.sh</p>
+<p class="last">rst2docs.sh</p>
+</td>
+<td><p class="first">List of authors.</p>
+<p>End-user license agreement.</p>
+<p>This file.</p>
+<p>HTML version of README.</p>
+<p>PDF version of README.</p>
+<p>Current version of mprfgen.</p>
+<p>Automated build script.</p>
+<p>Script for setting up the environment.</p>
+<p class="last">Documentation generator from RestructuredText.</p>
+</td>
+</tr>
+<tr><td>/sim</td>
+<td>Directory for simulation files</td>
+</tr>
+<tr><td><p class="first">change-generics.pl</p>
+<p class="last">ghdl.mk</p>
+</td>
+<td><p class="first">Perl script for adapting the testbench template.</p>
+<p class="last">Makefile for running a GHDL (<a class="reference external" href="http://ghdl.free.fr">http://ghdl.free.fr</a>)
+simulation.</p>
+</td>
+</tr>
+<tr><td><p class="first">ghdl.sh</p>
+<p class="last">regfile_tb_tmpl.vhd</p>
+</td>
+<td><p class="first">Bash script for running a GHDL simulation.</p>
+<p class="last">Generic testbench for simulative testing of generated
+multi-port register files.</p>
+</td>
+</tr>
+<tr><td>/src</td>
+<td>Source code directory</td>
+</tr>
+<tr><td><p class="first">Makefile</p>
+<p class="last">mprfgen.c</p>
+</td>
+<td><p class="first">Makefile for generating the mprfgen executable.</p>
+<p class="last">The source code for the application.</p>
+</td>
+</tr>
+<tr><td>/test</td>
+<td>Directory for testing mprfgen</td>
+</tr>
+<tr><td>regfile.vhd</td>
+<td>Generic model of a multi-port register file (for
+reference).</td>
+</tr>
+<tr><td>regfile_core.vhd</td>
+<td>Single-read, single-write port memory model used by
+the generated memories (mandatory for inferred
+memory).</td>
+</tr>
+<tr><td><p class="first">test[1-5].vhd</p>
+<p>test.sh</p>
+<p class="last">util_functions_pkg.vhd</p>
+</td>
+<td><p class="first">Sample files generated as shown in section 5.</p>
+<p>Generate the samples discussed in section 5.</p>
+<p class="last">A VHDL package providing some utility functions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="mprfgen-setup">
+<h1>3. mprfgen setup</h1>
+<p>For using mprfgen, this distribution comes with ready-made native executables
+for Windows and Linux, which can be found in the corresponding <tt class="docutils literal">/bin/exedir</tt>
+directory, where <tt class="docutils literal">exedir</tt> is <tt class="docutils literal">lin</tt> for Linux or <tt class="docutils literal">win</tt> for Windows.</p>
+<p>In order to build mprfgen from source on your platform, just run the
+<tt class="docutils literal">build.sh</tt> bash script from the command prompt. First, change to the
+appropriate directory, for instance:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">cd /home/user/mprfgen/</tt></div>
+</div>
+<p>assuming <tt class="docutils literal">mprfgen</tt> was installed inside <tt class="docutils literal">/home/user</tt> and finally run the
+script:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ ./build.sh</tt></div>
+</div>
+</div>
+<div class="section" id="mprfgen-usage">
+<h1>4. mprfgen usage</h1>
+<p>The <tt class="docutils literal">mprfgen</tt> program can be invoked with several options (see complete
+options listing below). The usual tasks that can be accomplished with
+<tt class="docutils literal">mprfgen</tt> are:</p>
+<ul class="simple">
+<li>infer a multi-port register file for NWP write ports and NRP read ports</li>
+<li>instantiate a multi-port register file for Xilinx FPGAs</li>
+</ul>
+<p><tt class="docutils literal">mprfgen</tt> can be invoked as:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">$./mprfgen</span> [options] &lt;out.vhd&gt;</tt></div>
+</div>
+<p><cite>options`</cite> is one or more of the following:</p>
+<dl class="docutils">
+<dt><strong>-h</strong></dt>
+<dd>Print this help.</dd>
+<dt><strong>-infer</strong></dt>
+<dd>Use generic RAM storage that can be inferred as block RAM(s).</dd>
+<dt><strong>-&lt;read-mode&gt;</strong></dt>
+<dd>Read mode supported by the generated RAM. Valid options:
+(read-async, read-first, write-first, read-through).
+<tt class="docutils literal"><span class="pre">read-through</span></tt> cannot be used for block RAM instantiation.
+Default is <tt class="docutils literal"><span class="pre">read-async</span></tt>.</dd>
+<dt><strong>-nwp &lt;num&gt;</strong></dt>
+<dd>Number of write ports for the register file.</dd>
+<dt><strong>-nrp &lt;num&gt;</strong></dt>
+<dd>Number of read ports for the register file.</dd>
+<dt><strong>-bw &lt;num&gt;</strong></dt>
+<dd>Bitwidth for each memory entry.</dd>
+<dt><strong>-nregs &lt;num&gt;</strong></dt>
+<dd>Memory size (number of words).</dd>
+</dl>
+</div>
+<div class="section" id="running-some-tests">
+<h1>5. Running some tests</h1>
+<p>Here follow some simple usage examples of <tt class="docutils literal">mprfgen</tt> assuming the user is
+at the <tt class="docutils literal">/mprfgen/test</tt> directory and is running Linux.</p>
+<ol class="arabic simple">
+<li>Generate a 3-read, 2-write port generic register file.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">../bin/lin/mprfgen.exe</span> <span class="pre">-infer</span> <span class="pre">-nwp</span> 2 <span class="pre">-nrp</span> 3 test1.vhd</tt></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Generate a 1-read, 1-write port 32x2048 memory.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">../bin/lin/mprfgen.exe</span> <span class="pre">-infer</span> <span class="pre">-read-first</span> <span class="pre">-nwp</span> 1 <span class="pre">-nrp</span> 1 <span class="pre">-bw</span> 32 <span class="pre">-nregs</span> 2048 test2.vhd</tt></div>
+</div>
+<ol class="arabic simple" start="3">
+<li>Generate a 2-read, 1-write port LUT-based register file.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">../bin/lin/mprfgen.exe</span> <span class="pre">-infer</span> <span class="pre">-read-async</span> test3.vhd</tt></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Generate a 2-read, 1-write port block RAM register file with direct
+instantiation.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">../bin/lin/mprfgen.exe</span> <span class="pre">-read-first</span> test4.vhd</tt></div>
+</div>
+<ol class="arabic simple" start="5">
+<li>Generate a 2-read, 2-write port block RAM register file with direct
+instantiation.</li>
+</ol>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ <span class="pre">../bin/lin/mprfgen.exe</span> <span class="pre">-infer</span> <span class="pre">-read-first</span> <span class="pre">-nwp</span> 2 <span class="pre">-nrp</span> 2 test5.vhd</tt></div>
+</div>
+<p>It is better to set up the <tt class="docutils literal">MPRFGEN_BIN_PATH</tt> environmental variable using</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ source env.sh WINDOWS</tt></div>
+</div>
+<p>or</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ source env.sh LINUX</tt></div>
+</div>
+<p>The user can add the mprfgen binaries directory to the PATH, e.g.:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">export <span class="pre">PATH=$MPRFGEN_BIN_PATH:$PATH</span></tt></div>
+</div>
+<p>in order to directly use <tt class="docutils literal">mprfgen</tt> invocations.</p>
+<p>Windows users are prompted to set the <tt class="docutils literal">MPRFGEN_BIN_PATH</tt> environmental
+variable to an appropriate value. An example is <tt class="docutils literal"><span class="pre">C:\mprfgen\bin\win</span></tt>, assuming
+that <tt class="docutils literal">mprfgen</tt> has been installed in <tt class="docutils literal">C:</tt>.</p>
+</div>
+<div class="section" id="simulation">
+<h1>6. Simulation</h1>
+<p>The generated multi-port register files can be simulated with the supplied files
+found in the <tt class="docutils literal">/sim</tt> subdirectory, given that they have been generated with the
+<tt class="docutils literal"><span class="pre">-infer</span></tt> option enabled. This means that the provided <tt class="docutils literal">test4.vhd</tt> cannot
+be simulated, while <tt class="docutils literal">test1.vhd</tt>, <tt class="docutils literal">test2.vhd</tt>, <tt class="docutils literal">test3.vhd</tt>, and <tt class="docutils literal">test5.vhd</tt>
+that don't require proprietary Xilinx libraries can.</p>
+<p>For running the GHDL simulation of a generated file, e.g. <tt class="docutils literal">test1.vhd</tt>, change
+directory to the <tt class="docutils literal">/sim</tt> subdirectory:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ cd $MPRFGEN_HOME/sim/rtl_sim/run</tt></div>
+</div>
+<p>assuming <tt class="docutils literal">MPRFGEN_HOME</tt> is the directory where the top-level <tt class="docutils literal">/mprfgen</tt> is
+found.</p>
+<p>Then, the corresponding shell script is executed:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ ./ghdl.sh test1</tt></div>
+</div>
+<p>The simulation produces a VCD (waveform) dump named <tt class="docutils literal">test1.vcd</tt> which can be
+inspected for simulation correctness.</p>
+<p>For the stimulus data used in the testbench, it is assumed that the following
+inequations hold:</p>
+<ul class="simple">
+<li><tt class="docutils literal">NWP * AW &gt;= 4</tt></li>
+<li><tt class="docutils literal">NRP * AW &gt;= 4</tt></li>
+<li><tt class="docutils literal">DW &gt;= 8</tt></li>
+</ul>
+</div>
+<div class="section" id="prerequisities">
+<h1>7. Prerequisities</h1>
+<ul>
+<li><p class="first">Standard UNIX-based tools (tested with gcc-3.4.4 on cygwin/x86, gcc-3.4.5 on
+mingw/x86, gcc-4.1.2 on Fedora 8 and gcc-4.6.1 on Ubuntu 11.10).</p>
+<ul class="simple">
+<li>make</li>
+<li>bash (shell)</li>
+<li>perl</li>
+</ul>
+<p>For rebuilding on Windows, the Cygwin (<a class="reference external" href="http://sources.redhat.com/cygwin">http://sources.redhat.com/cygwin</a>) is a
+popular solution, since it provides a near-complete POSIX environment.</p>
+</li>
+<li><p class="first">GHDL simulator (<a class="reference external" href="http://ghdl.free.fr">http://ghdl.free.fr</a>) for Windows or Linux.</p>
+<p>The latest GHDL distribution (0.29.1, Windows version) also installs GTKwave
+on Windows.</p>
+</li>
+</ul>
+</div>
+</div>
+</body>
+</html>
