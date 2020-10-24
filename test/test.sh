@@ -15,6 +15,7 @@ ${MPRFGEN_BIN_PATH}/mprfgen.exe -infer -nwp 2 -nrp 3 test1.vhd
 # Generate the corresponding testbench in the ../sim directory.
 cd ../sim
 ./change-generics.pl regfile_tb_tmpl.vhd 2 3 10 16 > test1_regfile_tb.vhd
+./ghdl.sh test1
 cd ../test
 
 # 2. Generate a 1-read, 1-write port 32x2048 memory.
@@ -22,6 +23,7 @@ ${MPRFGEN_BIN_PATH}/mprfgen.exe -infer -read-first -nwp 1 -nrp 1 -bw 32 -nregs 2
 # Generate the corresponding testbench in the ../sim directory.
 cd ../sim
 ./change-generics.pl regfile_tb_tmpl.vhd 1 1 11 32 > test2_regfile_tb.vhd
+./ghdl.sh test2
 cd ../test
 
 # 3. Generate a 2-read, 1-write port LUT-based register file.
@@ -29,6 +31,7 @@ ${MPRFGEN_BIN_PATH}/mprfgen.exe -infer -read-async test3.vhd
 # Generate the corresponding testbench in the ../sim directory.
 cd ../sim
 ./change-generics.pl regfile_tb_tmpl.vhd 1 2 10 16 > test3_regfile_tb.vhd
+./ghdl.sh test3
 cd ../test
 
 # 4. Generate a 2-read, 1-write port block RAM register file with direct 
@@ -41,6 +44,7 @@ ${MPRFGEN_BIN_PATH}/mprfgen.exe -infer -read-first -nwp 2 -nrp 2 test5.vhd
 # Generate the corresponding testbench in the ../sim directory.
 cd ../sim
 ./change-generics.pl regfile_tb_tmpl.vhd 2 2 10 16 > test5_regfile_tb.vhd
+./ghdl.sh test5
 cd ../test
 
 if [ "$SECONDS" -eq 1 ]
