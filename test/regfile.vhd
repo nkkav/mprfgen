@@ -2,18 +2,18 @@
 -- Filename: regfile.vhd
 -- Purpose : Generic implementation of a multi-port register file.
 -- Author  : Nikolaos Kavvadias <nikolaos.kavvadias@gmail.com> 2007-2020
--- Date    : 10-Jan-2013
--- Version : 1.0.0
--- Revision: 1.0.0 (2013/01/10)
+-- Date    : 24-Oct-2020
+-- Version : 1.0.2
+-- Revision: 1.0.2 (2020/10/24)
+--           Use IEEE.numeric_std.
+--           1.0.0 (2013/01/10)
 --           Stable version.
 -- License : Copyright (C) 2007-2020 Nikolaos Kavvadias
---
 --------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.std_logic_unsigned.all;
-use IEEE.std_logic_arith.all;
+use IEEE.numeric_std.all;
 
 entity regfile is
   generic (
@@ -42,7 +42,7 @@ architecture synth of regfile is
 begin
   process (clock)
   begin
-    if (clock'EVENT and clock = '1') then
+    if (rising_edge(clock)) then
       if (enable = '1') then
         for i in 0 to NWP-1 loop
           if ((we_v(i) = '1')) then

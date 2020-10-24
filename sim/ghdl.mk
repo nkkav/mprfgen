@@ -3,8 +3,8 @@
 # Copyright: (C) 2010-2020 Nikolaos Kavvadias 
 
 GHDL=ghdl
-#MPRF=test1
-GHDLFLAGS=--ieee=synopsys -fexplicit --workdir=work
+MPRF?=test1
+GHDLFLAGS=-fexplicit --workdir=work
 GHDLRUNFLAGS=--vcd=$(MPRF).vcd --stop-time=800ns
 
 # Default target : elaborate

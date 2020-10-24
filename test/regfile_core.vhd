@@ -3,18 +3,18 @@
 -- Purpose : Single-read, single-write port memory model used by the generated 
 --           memories (mandatory for inferred memory).
 -- Author  : Nikolaos Kavvadias <nikolaos.kavvadias@gmail.com> 2007-2020
--- Date    : 10-Jan-2013
--- Version : 1.0.0
--- Revision: 1.0.0 (2013/01/10)
+-- Date    : 24-Oct-2020
+-- Version : 1.0.2
+-- Revision: 1.0.2 (2020/10/24)
+--           Use IEEE.numeric_std.
+--           1.0.0 (2013/01/10)
 --           Stable version.
 -- License : Copyright (C) 2007-2020 Nikolaos Kavvadias
---
 --------------------------------------------------------------------------------
 
 library IEEE;
 use IEEE.std_logic_1164.all;
-use IEEE.std_logic_unsigned.all;
-use IEEE.std_logic_arith.all;
+use IEEE.numeric_std.all;
 
 entity regfile_core is
   generic (
@@ -40,10 +40,10 @@ architecture write_first of regfile_core is
 begin
   process (clock)
   begin
-    if (clock'EVENT and clock = '1') then
+    if (rising_edge(clock)) then
       if (enable = '1') then
         if (we = '1') then
-          ram_name(conv_integer(waddr)) <= input_data;
+          ram_name(to_integer(unsigned(waddr))) <= input_data;
         end if;
       end if;
     end if;
@@ -51,9 +51,9 @@ begin
 
   process (clock)
   begin
-    if (clock'EVENT and clock = '1') then
+    if (rising_edge(clock)) then
       if (enable = '1') then
-        ram_output <= ram_name(conv_integer(raddr));
+        ram_output <= ram_name(to_integer(unsigned(raddr)));
       end if;
     end if;
   end process;
@@ -65,16 +65,16 @@ architecture read_async of regfile_core is
 begin
   process (clock)
   begin
-    if (clock'EVENT and clock = '1') then
+    if (rising_edge(clock)) then
       if (enable = '1') then
         if (we = '1') then
-          ram_name(conv_integer(waddr)) <= input_data;
+          ram_name(to_integer(unsigned(waddr))) <= input_data;
         end if;
       end if;
     end if;
   end process;
 
-  ram_output <= ram_name(conv_integer(raddr));
+  ram_output <= ram_name(to_integer(unsigned(raddr)));
 end read_async;
 
 architecture read_first of regfile_core is
@@ -85,11 +85,11 @@ architecture read_first of regfile_core is
 begin
   process (clock)
   begin
-    if (clock'EVENT and clock = '1') then
+    if (rising_edge(clock)) then
       if (enable = '1') then
-        ram_output <= ram_name(conv_integer(raddr));
+        ram_output <= ram_name(to_integer(unsigned(raddr)));
         if (reset = '1') then
-          ram_name(conv_integer(raddr)) := input_data;
+          ram_name(to_integer(unsigned(raddr))) := input_data;
         end if;
       end if;
     end if;
@@ -97,12 +97,12 @@ begin
 
   process (clock)
   begin
-    if (clock'EVENT and clock = '1') then
+    if (rising_edge(clock)) then
       if (enable = '1') then
         if (we = '1') then
-          ram_name(conv_integer(waddr)) := input_data;
+          ram_name(to_integer(unsigned(waddr))) := input_data;
         end if;
-        ram_output_b <= ram_name(conv_integer(waddr));
+        ram_output_b <= ram_name(to_integer(unsigned(waddr)));
       end if;
     end if;
   end process;
@@ -116,14 +116,14 @@ begin
 
   process (clock)
   begin
-    if (clock'EVENT and clock = '1') then
+    if (rising_edge(clock)) then
       if (enable = '1') then
         if (we = '1') then
-          ram_name(conv_integer(waddr)) <= input_data;
+          ram_name(to_integer(unsigned(waddr))) <= input_data;
         end if;
         read_raddr <= raddr;
       end if;
     end if;
   end process;
-  ram_output <= ram_name(conv_integer(read_raddr));
+  ram_output <= ram_name(to_integer(unsigned(read_raddr)));
 end read_through;

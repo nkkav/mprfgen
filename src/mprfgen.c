@@ -128,12 +128,11 @@ void print_mprf_tu_prologue(FILE *infile, char *fname)
 -- Filename: %s\n", fname);
   fprintf(infile, "-- Date: ");
   timestamp(infile);
-  fprintf(infile, "-- Author: Nikolaos Kavvadias 2007-2013\n\n");
+  fprintf(infile, "-- Author: Nikolaos Kavvadias 2007-2020\n\n");
   
   pfprintf(infile, 0, "library IEEE;\n");
   pfprintf(infile, 0, "use IEEE.std_logic_1164.all;\n");
-  pfprintf(infile, 0, "use IEEE.std_logic_unsigned.all;\n");
-  pfprintf(infile, 0, "use IEEE.std_logic_arith.all;\n");
+  pfprintf(infile, 0, "use IEEE.numeric_std.all;\n");
   pfprintf(infile, 0, "use WORK.util_functions_pkg.all;\n");
 
   if (enable_infer == 0)
@@ -343,7 +342,7 @@ void print_mprf_outmuxes_gen(FILE *infile, int num_ni, int num_no)
       pfprintf(infile, 4, "variable ia_sel_part : integer range 0 to NWP-1;\n");
       pfprintf(infile, 2, "begin\n");
       pfprintf(infile, 4, "ia_sel(%d) <= banksel_v(log2c(NWP)*(%d+1)-1 downto log2c(NWP)*%d);\n", j, j, j);
-      pfprintf(infile, 4, "ia_sel_part := conv_integer(ia_sel(%d));\n", j);
+      pfprintf(infile, 4, "ia_sel_part := to_integer(unsigned(ia_sel(%d)));\n", j);
       pfprintf(infile, 4, "case ia_sel_part is\n");
 
       for (i = 0; i < num_no; i++)
