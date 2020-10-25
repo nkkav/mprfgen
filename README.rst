@@ -2,6 +2,10 @@
  mprfgen user manual
 =====================
 
+.. image:: mprfgen.png
+   :scale: 100 %
+   :align: center 
+
 +-------------------+----------------------------------------------------------+
 | **Title**         | mprfgen                                                  |
 +-------------------+----------------------------------------------------------+
@@ -91,6 +95,8 @@ The mprfgen distribution includes the files listed in the following table.
 | build.sh              | Automated build script.                              |
 |                       |                                                      |
 | env.sh                | Script for setting up the environment.               |
+|                       |                                                      |
+| mprfgen.png           | mprfgen logo.                                        |
 |                       |                                                      |
 | rst2docs.sh           | Documentation generator from RestructuredText.       |
 +-----------------------+------------------------------------------------------+
@@ -269,8 +275,8 @@ inequations hold:
 - ``DW >= 8``
 
 
-7. Prerequisities
-=================
+7. Prerequisites
+================
 
 - Standard UNIX-based tools (tested with gcc-3.4.4 on cygwin/x86, gcc-3.4.5 on 
   mingw/x86, gcc-4.1.2 on Fedora 8 and gcc-4.6.1 on Ubuntu 11.10).
