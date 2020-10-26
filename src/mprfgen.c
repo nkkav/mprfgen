@@ -392,13 +392,13 @@ static void print_usage()
   printf("*                 options: {read-async, read-first, write-first,\n");
   printf("*                 read-through}. \"read-through\" cannot be used for\n");
   printf("*                 for block RAM instantiation. Default is \"read-async\"\n");
-  printf("*   -nwp <num>:   Number of write ports for the register file.\n");
-  printf("*   -nrp <num>:   Number of read ports for the register file.\n");
+  printf("*   -nwp <num>:   Number of write ports for the register file\n");
+  printf("*                 (default: 1).\n");
+  printf("*   -nrp <num>:   Number of read ports for the register file\n");
+  printf("*                 (default: 2).\n");
   printf("*   -bw <num>:    Bitwidth for each memory entry (default: 16).\n");
   printf("*   -nregs <num>: Memory size (default: 1024).\n");
-  printf("* \n");
-  printf("* For further information, please refer to the website:\n");
-  printf("* http://electronics.physics.auth.gr/tomeas/en/kavvadias.html\n\n");
+  printf("* \n\n");
 }
 
 /* Program entry.
